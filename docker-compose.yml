@@ -1,0 +1,13 @@
+version: "3"
+services:
+  db:
+    image: "postgres"
+    container_name: "my_postgres"
+    environment:
+     - POSTGRES_PASSWORD=P@ssw0rd
+    ports:
+      - "6543:5432"
+    volumes:
+      - discovery_sql:/var/lib/postgresql/data
+volumes:
+  discovery_sql:
