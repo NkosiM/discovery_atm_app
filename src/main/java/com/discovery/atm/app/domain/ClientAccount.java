@@ -2,44 +2,51 @@ package com.discovery.atm.app.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "client_account")
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 public class ClientAccount implements Serializable {
+
 
     @Id
     @NonNull
-//    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "client_account_number")
     private String clientAccountNumber;
 
     @Column(name = "display_balance")
-    private double displayBalance;
+    private BigDecimal displayBalance;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "client_id", nullable = false)
+//    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "client_id",  referencedColumnName = "client_id" )
+    @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
-    private Client clientId;
+    private Client client_id;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "account_type_code", nullable = false)
+    @JoinColumn(name = "account_type_code", referencedColumnName = "account_type_code")
+    @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
-    private AccountType accountTypeCode;
+    private AccountType account_type_code;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "currency_code", nullable = false)
+    @JoinColumn(name = "currency_code", referencedColumnName = "currency_code")
+    @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
-    private Currency currencyCode;
+    private Currency currency_code;
 
 
 }

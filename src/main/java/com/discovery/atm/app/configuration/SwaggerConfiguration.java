@@ -16,7 +16,7 @@ public class SwaggerConfiguration {
     public Docket documentation() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.discovery.atm.app.interfaces"))
+                .apis(RequestHandlerSelectors.basePackage("com.discovery.atm.app.application.controller"))
                 .paths(PathSelectors.any())
                 .build()
                 .useDefaultResponseMessages(false)

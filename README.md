@@ -40,10 +40,6 @@ mvn spring-boot:run
 
 Application is configured to run on http://localhost:7070
 
-#Postgres GUI : 
-
-   http://localhost:7070/postgres 
-   
    
 
 #Swagger ui
@@ -51,5 +47,7 @@ Application is configured to run on http://localhost:7070
 
 To access swagger: http://localhost:7070/swagger-ui.html#/atm-system-impl/
 
+
+Swagger provides documentation for all APIs in the application, as well as defines the request and response object for the API
 
 
