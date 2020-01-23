@@ -36,7 +36,10 @@ mvn clean install
 
 mvn spring-boot:run
 
-
+#Upon succesful startup
+navigate and open the application.properties file (using your ide or via command line)
+`touch discovery_atm_app/src/main/resources/application.properties`
+Within the properties file, look for a variable named `spring.datasource.initialization-mode` and change its value from ALWAYS to NEVER. This ensure that on your next startup, the db tables data is not reinitialized but maintains current state
 
 Application is configured to run on http://localhost:7070
 
