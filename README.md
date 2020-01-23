@@ -26,7 +26,7 @@ password: P@ssw0rd
 
 Connecting to postgres through the cmd line
 
-`psql -h localhost -U postgres -d postgres -p 6543`
+`psql -h localhost -U postgres -d postgres -p 5532`
 
 #Running the Application
 
